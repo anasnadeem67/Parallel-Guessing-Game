@@ -1,4 +1,4 @@
-# Parallel Programming in Python - Assignment
+# Chapter 02 - Parallel Programming in Python
 
 This repository contains Python scripts demonstrating **Threading, Locks, RLocks, Semaphores, Events, Conditions, Barriers, and Multiprocessing** concepts. Each file implements a specific concept or pattern for parallel execution.
 
