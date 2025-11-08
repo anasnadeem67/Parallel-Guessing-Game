@@ -1,4 +1,4 @@
-# Parallel Guessing Game - Python Threading & Multiprocessing Assignment
+# Chapter 02 - Python Threading & Multiprocessing
 
 This project contains multiple Python scripts demonstrating different threading, multiprocessing, and synchronization concepts in Python. Each script is implemented with proper logging, threading, and process control techniques.
 
