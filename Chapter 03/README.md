@@ -1,135 +1,91 @@
-# Chapter 03 - Parallel Programming in Python
+# 🧠 Parallel Number Guessing Game using Multiprocessing and Multithreading
 
-This repository contains Python scripts demonstrating **Threading, Locks, RLocks, Semaphores, Events, Conditions, Barriers, and Multiprocessing** concepts. Each file implements a specific concept or pattern for parallel execution.
-
----
-
-## Table of Contents
-
-1. [Guessing Game](#guessing-game)
-2. [Threading Examples](#threading-examples)
-3. [Thread Synchronization](#thread-synchronization)
-4. [Multiprocessing Examples](#multiprocessing-examples)
-5. [Process Synchronization](#process-synchronization)
-6. [Process Pool](#process-pool)
-7. [Spawning Processes](#spawning-processes)
-8. [How to Run](#how-to-run)
-9. [Notes](#notes)
+## 📘 Overview
+This project demonstrates how a simple Python game, **“Guess the Number”**, can be implemented using **parallel programming** concepts.  
+It compares the performance of **multiprocessing** and **multithreading** when running the same task multiple times simultaneously.
 
 ---
 
-## Guessing Game
-
-**File:** `parallel_guessing_game.py`
-
-- Simulates a random number guessing game.
-- Each game has a secret number and limited attempts.
-- Demonstrates sequential simulation of multiple games.
-
-**Sample Output:**
-Game 1: Lost, Attempts: 10
-Game 2: Won, Attempts: 3
-
+## ⚙️ Concepts Used
+- **Multiprocessing:** Runs multiple processes in parallel, utilizing multiple CPU cores.  
+- **Multithreading:** Runs multiple threads within a single process, sharing memory.  
+- **Random Number Generation:** Generates a random number for each game instance.  
+- **Time Measurement:** Calculates total execution time for both approaches.
 
 ---
 
-## Threading Examples
-
-**Files:**
-- `MyThreadClass.py`
-- `MyThreadClass_lock.py`
-- `MyThreadClass_lock_2.py`
-- `Thread_definition.py`
-- `Thread_determine.py`
-- `Thread_name_and_processes.py`
-- `Barrier.py`
-
-**Concepts Covered:**
-- Thread creation and execution
-- Thread join
-- Locks (`threading.Lock`)
-- Reentrant Locks (`threading.RLock`)
-- Barrier synchronization
-- Thread names and process IDs
+## 📜 Working Explanation
+1. Each process or thread runs an independent instance of the **“Guess the Number”** game.  
+2. A random number between **1 and 100** is generated.  
+3. Each game has **10 random attempts** to guess the correct number.  
+4. The total time taken for all processes and threads to complete is recorded.  
+5. The output compares the execution times of **multiprocessing** and **multithreading**.
 
 ---
 
-## Thread Synchronization
-
-**Files:**
-- `Condition.py` – Producer/Consumer using `threading.Condition`
-- `Event.py` – Producer/Consumer using `threading.Event`
-- `Semaphore.py` – Producer/Consumer using `threading.Semaphore`
-- `Threading_with_queue.py` – Queue-based producer/consumer
-
-**Concepts Covered:**
-- Coordinating multiple threads
-- Waiting and notifying
-- Shared data protection
-- Event signaling
+## 💡 Purpose
+This project helps to:
+- Understand the difference between **multiprocessing** and **multithreading**.  
+- Measure how **parallel execution** improves performance.  
+- Learn how **CPU-bound tasks** behave under both methods.
 
 ---
 
-## Multiprocessing Examples
-
-**Files:**
-- `communicating_with_pipe.py` – Using `multiprocessing.Pipe`
-- `communicating_with_queue.py` – Using `multiprocessing.Queue`
-- `killing_processes.py` – Terminating processes
-- `myFunc.py` – Simple function for processes
-- `naming_processes.py` – Process names
-- `process_in_subclass.py` – Custom process subclass
-- `process_pool.py` – Process Pool
-- `processes_barrier.py` – Process synchronization with barrier
-- `run_background_processes.py` – Daemon and non-daemon processes
-- `run_background_processes_no_daemons.py` – Non-daemon background processes
-- `spawning_processes.py` – Spawning processes sequentially
-- `spawning_processes_namespace.py` – Spawning processes using `__name__ == '__main__'`
-
-**Concepts Covered:**
-- Process creation and execution
-- Pipe and Queue communication
-- Process termination and joining
-- Daemon vs non-daemon processes
-- Process synchronization (Barrier, Lock)
-- Process pools and map
-- Namespaces and spawn method
+## 🧩 Modules Used
+```python
+import random
+import time
+import threading
+import multiprocessing
+```
 
 ---
 
-## Process Synchronization
-
-**Concepts & Files:**
-- Barrier synchronization (`processes_barrier.py`)
-- Locks (`MyThreadClass_lock.py`, `MyThreadClass_lock_2.py`)
-- Reentrant Locks (`Rlock.py`)
-- Semaphores (`Semaphore.py`)
-
----
-
-## Process Pool
-
-**File:** `process_pool.py`
-
-- Demonstrates using a **Process Pool** to map a function across multiple inputs.
-- Reduces process creation overhead.
+## 🕹️ How to Run
+1. Save the file as **`parallel_guess_game.py`**  
+2. Open your terminal or command prompt and run:
+   ```bash
+   python parallel_guess_game.py
+   ```
+3. The program will display the total time taken for both **multiprocessing** and **multithreading** tests.
 
 ---
 
-## Spawning Processes with Tasks
+## 📊 Sample Output
+```
+Starting Multiprocessing test with 10 processes...
+Process 1 started.
+Process 2 started.
+...
+Process 10 completed.
+Multiprocessing time = 1.45 seconds
 
-**Files:**
-- `spawning_processes.py`
-- `spawning_processes_namespace.py`
-
-- Shows how to spawn multiple processes and run a function (`myFunc`) with arguments.
-- Can integrate small tasks like the **Guessing Game** inside each process.
+Starting Multithreading test with 10 threads...
+Thread 1 started.
+Thread 2 started.
+...
+Thread 10 completed.
+Multithreading time = 9.51 seconds
+```
 
 ---
 
-## How to Run
+## 📈 Observation
+- ✅ **Multiprocessing** is generally faster because each process runs on a separate CPU core.  
+- ⚠️ **Multithreading** is slower in Python due to the **Global Interpreter Lock (GIL)**, which limits true parallel execution for CPU-bound tasks.
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/your-username/Parallel-Programming-Python.git
-cd Parallel-Programming-Python
+---
+
+## 👨‍🏫 Project Information
+| Field | Details |
+|-------|----------|
+| **Student Name** | Anas Nadeem |
+| **Roll No** | 23SP-102-CS |
+| **Course** | Parallel and Distributed Computing |
+| **Instructor** | Miss Rameen |
+| **Language** | Python 3 |
+
+---
+
+## 🏁 Conclusion
+This project provides a practical demonstration of how **parallel programming** concepts can significantly influence execution performance and help understand Python’s concurrency model.
